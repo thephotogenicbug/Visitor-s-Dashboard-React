@@ -11,6 +11,7 @@ class Dashboard extends Component{
          email:'',
          mobile:'',
          visit:'',
+         message:'',
          employee:''
         }
     }  
@@ -67,6 +68,7 @@ class Dashboard extends Component{
         e.preventDefault();
         this.setState({
             message:"Please Wait Processing...",
+            studentlist:[]
         })
         const data = {
           name: this.state.name,
@@ -90,6 +92,7 @@ class Dashboard extends Component{
                 })
                
           });
+          this.getContact();
          
       };
 
@@ -183,6 +186,7 @@ class Dashboard extends Component{
                 <div className="col-md-2"></div>
                 <div className="col-md-8">
                 <h3 className="text-center text-primary">Available Records:- {this.state.studentlist.length}</h3>
+                <p className="text-center text-danger">{this.state.message}</p>
                     <table className="table table-bordered table-sm">
                         <thead>
                         <tr className="text-center bg-danger text-white">
