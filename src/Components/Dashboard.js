@@ -92,7 +92,7 @@ class Dashboard extends Component{
                 })
                
           });
-          this.getContact();
+          window.location.href="/";
          
       };
 
@@ -183,8 +183,8 @@ class Dashboard extends Component{
                 </div>
             </div>
             <div className="row mt-3">
-                <div className="col-md-2"></div>
-                <div className="col-md-8">
+                <div className="col-md-3"></div>
+                <div className="col-md-6">
                 <h3 className="text-center text-primary">Available Records:- {this.state.studentlist.length}</h3>
                 <p className="text-center text-danger">{this.state.message}</p>
                     <table className="table table-bordered table-sm">
@@ -215,7 +215,7 @@ class Dashboard extends Component{
                             </tbody>
                     </table>
                 </div>
-                <div className="col-md-2"></div>
+                <div className="col-md-3"></div>
             </div>
         </div>
 
