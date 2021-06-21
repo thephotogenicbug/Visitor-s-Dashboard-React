@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Welcome from './visitor.png'
+import Footer from './Footer'
 import axios from 'axios';
 
 class Dashboard extends Component{
@@ -92,7 +93,7 @@ class Dashboard extends Component{
                 })
                
           });
-          window.location.href="/";
+          window.location.href='#/thankyou'
          
       };
 
@@ -116,48 +117,53 @@ class Dashboard extends Component{
                 
                 <div className="col-md-8 mt-4">
                     <div className="row">
-                       <div className="col-md-5">
-                           <div className="form-group">
+                       <div className="col-md-5 ">
+                           <div className="mb-3">
                            
                                <input type="text" className="form-control mt-2" placeholder="Student Name"
                                 value={this.state.name}
                                 onChange={this.processName}
+                                required
                                />
                            </div>
                        </div>
                        <div className="col-md-5">
-                           <div className="form-group">
+                           <div className="mb-3">
                              
                                <input type="text" className="form-control mt-2" placeholder="Mobile No"
                                value={this.state.mobile}
                                onChange={this.processMobile}
+                               required
                                />
                            </div>
                        </div>
-                       <div className="col-md-5 mt-3">
-                           <div className="form-group">
+                       <div className="col-md-5 ">
+                           <div className="mb-3">
                              
                                <input type="text" className="form-control  mt-2" placeholder="Purpose of visit"
                                 value={this.state.visit}
                                 onChange={this.processVisit}
+                                required
                               />
                            </div>
                        </div>
-                       <div className="col-md-5 mt-3">
-                           <div className="form-group">
+                       <div className="col-md-5 ">
+                           <div className="mb-3">
                              
                                <input type="email" className="form-control  mt-2" placeholder="Email ID"
                                value={this.state.email}
                                onChange={this.processEmail}
+                               required
                                />
                            </div>
                        </div>
-                       <div className="col-md-10 mt-3">
-                           <div className="form-group">
+                       <div className="col-md-10 ">
+                           <div className="mb-3">
                                <select className="form-control mt-2" id="dropdown"
                                
                                value={this.state.employee}
-                               onChange={this.processEmp}>
+                               onChange={this.processEmp}
+                               required>
                                    <option>Select counselor</option>
                                    <option>Ahmed Khan</option>
                                    <option>Shaik Rafiq</option>
@@ -176,46 +182,15 @@ class Dashboard extends Component{
                        <div className="col-md-12 mt-4">
                            <button className="btn btn-danger" type="submit"  >Submit</button>
                        </div>
+                       {this.state.message}
                     </div>
                 </div>
                 <div className="col-md-4" id="image">
                 <img  src={Welcome} className="img-fluid m-2"  alt="Welcome img"/>
                 </div>
-            </div>
-            <div className="row mt-3">
-                <div className="col-md-3"></div>
-                <div className="col-md-6">
-                <h3 className="text-center text-primary">Available Records:- {this.state.studentlist.length}</h3>
-                <p className="text-center text-danger">{this.state.message}</p>
-                    <table className="table table-bordered table-sm">
-                        <thead>
-                        <tr className="text-center bg-danger text-white">
-                                    <th>Student Name</th>
-                                    <th>Mobile</th>
-                                    <th>E-mail</th>
-                                    <th>Purpose of visit</th>
-                                    <th>counselor Name</th>
-                                    
-                                </tr>
-                        </thead>
-                        <tbody>
-                                {
-                                    this.state.studentlist.map((row,index)=>{
-                                        return(
-                                            <tr key={index}>
-                                                <td>{row.name}</td>
-                                                <td>{row.mobile}</td>
-                                                <td>{row.email}</td>
-                                                <td>{row.visit}</td>
-                                                <td>{row.employee}</td>
-                                            </tr>
-                                        )
-                                    })
-                                }
-                            </tbody>
-                    </table>
-                </div>
-                <div className="col-md-3"></div>
+              <div className="mt-5">
+              <Footer/>
+              </div>
             </div>
         </div>
 
